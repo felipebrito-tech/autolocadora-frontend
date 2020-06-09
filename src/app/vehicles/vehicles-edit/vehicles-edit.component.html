@@ -1,0 +1,25 @@
+<div>
+    <h3>Editar Veículo</h3>
+</div>
+<form class="example-container" [formGroup]="vehicleForm" (ngSubmit)="update(vehicleForm.value)">
+    <mat-form-field>
+        <input matInput name="marca" placeholder="Marca do veículo" formControlName="marca">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput name="modelo" placeholder="Modelo do veículo" formControlName="modelo">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput name="ano" placeholder="Ano do veículo" formControlName="ano">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput name="placa" placeholder="Placa do veículo" formControlName="placa">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput name="renavam" placeholder="Renavam do veículo" formControlName="renavam">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput name="chassi" placeholder="Chassi do veículo" formControlName="chassi">
+    </mat-form-field>
+
+    <button type="submit" [disabled]="!vehicleForm.valid" mat-button color="primary" >Editar</button>
+</form>

@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { VehiclesComponent } from './vehicles/vehicles.component';
-import { VehiclesDetailsComponent } from './vehicles-details/vehicles-details.component';
-import { VehiclesNewComponent } from './vehicles-new/vehicles-new.component';
-import { VehiclesEditComponent } from './vehicles-edit/vehicles-edit.component';
+import { VehiclesDetailsComponent } from './vehicles/vehicles-details/vehicles-details.component';
+import { VehiclesNewComponent } from './vehicles/vehicles-new/vehicles-new.component';
+import { VehiclesEditComponent } from './vehicles/vehicles-edit/vehicles-edit.component';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -27,6 +29,10 @@ const routes: Routes = [
       path: '',
       redirectTo: '/vehicles',
       pathMatch: 'full'
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   }
 ];
 

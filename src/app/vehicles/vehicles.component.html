@@ -1,1 +1,39 @@
-<p>vehicles works!</p>
+<!--div *ngFor="let vehicle of vehicles">
+    <input type="hidden" [value]="vehicle.id">
+    <ul>
+        <li>{{ vehicle.placa }}</li>
+        <li>{{ vehicle.chassi }}</li>
+        <li>{{ vehicle.renavam }}</li>
+        <li>{{ vehicle.modelo }}</li>
+        <li>{{ vehicle.marca }}</li>
+        <li>{{ vehicle.ano }}</li>
+    </ul>
+</div -->
+
+<div>
+    <h3>Lista de Veículos</h3>
+  </div>
+  <mat-table [dataSource]="vehicles" class="mat-elevation-z8">
+  
+    <ng-container matColumnDef="marca">
+      <mat-header-cell *matHeaderCellDef> Marca </mat-header-cell>
+      <mat-cell *matCellDef="let vehicle"> {{vehicle.marca}} </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="modelo">
+      <mat-header-cell *matHeaderCellDef> Modelo </mat-header-cell>
+      <mat-cell *matCellDef="let vehicle"> {{vehicle.modelo}} </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="ano">
+      <mat-header-cell *matHeaderCellDef> Ano </mat-header-cell>
+      <mat-cell *matCellDef="let vehicle"> {{vehicle.ano}} </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="acao">
+        <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+        <mat-cell *matCellDef="let vehicle"> <button mat-flat-button color="accent" routerLink="/vehicles/details/{{vehicle.id}}" selected>Detalhes</button></mat-cell>
+      </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
